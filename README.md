@@ -40,11 +40,10 @@ __label__2 positive review text here...
 ```
 Sentiment Analysis/
 ├── README.md                              # This file
-├── amazon-reviews-sentiment-analysis.ipynb # Main analysis notebook
+├── amazon_reviews_sentiment_clean.ipynb   # Main analysis notebook
 ├── train.ft.txt                           # Training data (FastText format)
 ├── test.ft.txt                            # Test data (FastText format)
 ├── cleaned_documents.csv                  # Cached preprocessed data
-└── amazon_reviews_sentiment_clean.ipynb   # Alternative notebook
 ```
 
 ## Installation
