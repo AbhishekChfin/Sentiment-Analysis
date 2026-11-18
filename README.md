@@ -1,6 +1,6 @@
 # Amazon Reviews Sentiment Analysis
 
-A comprehensive machine learning and sentiment analysis project for classifying Amazon product reviews as positive or negative sentiment using natural language processing and traditional ML linear models.
+This is a machine learning and sentiment analysis project for classifying Amazon product reviews as positive or negative sentiment using natural language processing and traditional ML linear models from scratch.
 
 ## Linear Models and accuracy
 
@@ -63,7 +63,7 @@ Linear SVC:
   - Accuracy: ~88%
 ```
 
-View exact metrics by executing the evaluation cells in the notebook.
+View exact metrics in the python notebook.
 
 ### Feature Statistics
 
@@ -73,38 +73,13 @@ View exact metrics by executing the evaluation cells in the notebook.
 - **Training Set**: 90% (~3.2M samples)
 - **Test Set**: 10% (~0.4M samples)
 
-## Preprocessing Pipeline
-
-### Text Normalization
-1. **Lowercasing**: Standardize case to reduce dimensionality
-2. **Stopword Removal**: Filter common English words (the, a, is, etc.)
-3. **Stemming**: Reduce words to root form (running → run)
-
-### Artifact Removal
-1. **URL Removal**: Strip hyperlinks and web addresses
-2. **Symbol Cleaning**: Remove punctuation, hashtags, mentions
-
-### Vectorization
-- **HashingVectorizer**: Memory-efficient feature hashing with fixed dimensions
-- **N-grams**: Unigrams and bigrams capture local word context
-- **Normalization**: L2 norm applied to feature vectors
-
-## Future Improvements
-
-### Short-Term Enhancements
-- **TF-IDF Weighting**: Replace HashingVectorizer with TfidfVectorizer for improved feature importance
-
-### Advanced Approaches
-- **Word Embeddings**: Word2Vec, GloVe, or FastText embeddings
-- **Deep Learning**: LSTM or transformer-based models (BERT, RoBERTa)
-
 
 ## Model Configuration
 
 - You can compare different configuration for both models, but the configurations mentioned below resulted with the least loss and better accuracy.
 
 **Logistic Regression**:
-- Solver: LBFGS (quasi-Newton optimization)
+- Solver: `lbfgs`
 - C: 5.0 (inverse regularization strength)
 - Max iterations: 1000
 
@@ -120,7 +95,7 @@ View exact metrics by executing the evaluation cells in the notebook.
 
 ## License
 
-This project uses publicly available data from Kaggle. Follow Kaggle's terms of service for data usage.
+This project uses publicly available data from Kaggle.
 
 ## Author
 
