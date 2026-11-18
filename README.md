@@ -1,57 +1,30 @@
 # Amazon Reviews Sentiment Analysis
 
-A comprehensive machine learning project for classifying Amazon product reviews as positive or negative sentiment using text preprocessing and linear classification models.
+A comprehensive machine learning and sentiment analysis project for classifying Amazon product reviews as positive or negative sentiment using natural language processing and traditional ML linear models.
 
-## Project Overview
+## Linear Models and accuracy
 
-This project implements a complete sentiment analysis pipeline that processes raw Amazon review data through multiple preprocessing stages and trains two competitive classification models:
-
-- **Logistic Regression**: Probabilistic linear classifier with interpretable coefficients
-- **Linear SVC**: Maximum-margin classifier optimized for high-dimensional sparse text features
+- **Logistic Regression** 
+- **Linear Support Vector Classifier (SVC)**
 
 Both models achieve ~88% accuracy on the test set using HashingVectorizer with n-gram features.
 
 ## Dataset
 
-### Source
+### Source: Download the dataset using the link below.
 - **Kaggle Dataset**: [Amazon Reviews](https://www.kaggle.com/datasets/bittlingmayer/amazonreviews)
-- **Format**: Original data provided in bz2 compressed format
-- **Size**: ~3.6M reviews (train) + 0.4M reviews (test)
-- **Labels**: Binary classification (negative=1, positive=2)
-
-### Data Preparation
-
-The original bz2-compressed files were decompressed to text format:
-
-```bash
-# Example: Decompress train.ft.txt.bz2
-bzip2 -d train.ft.txt.bz2
-bzip2 -d test.ft.txt.bz2
-```
-
-After decompression, the files are in FastText format with one review per line:
-```
-__label__1 review text here...
-__label__2 positive review text here...
-```
+- **Format**: Data file is in bz2 compressed format
+- **Size**: around 3.6M reviews (train) + 0.4M reviews (test)
 
 ## Project Structure
 
 ```
 Sentiment Analysis/
-├── README.md                              # This file
-├── amazon_reviews_sentiment_clean.ipynb   # Main analysis notebook
-├── train.ft.txt                           # Training data (FastText format)
-├── test.ft.txt                            # Test data (FastText format)
-├── cleaned_documents.csv                  # Cached preprocessed data
+├── README.md                              # Detailed project walkthrough
+├── amazon-reviews-sentiment-analysis.ipynb # Main analysis notebook
 ```
 
 ## Installation
-
-### Requirements
-
-- Python 3.8+
-- Jupyter Notebook or JupyterLab
 
 ### Dependencies
 
@@ -67,14 +40,6 @@ Or install from a requirements file:
 pip install -r requirements.txt
 ```
 
-### NLTK Data
-
-The notebook automatically downloads required NLTK data:
-
-```python
-nltk.download('stopwords')
-```
-
 ## Usage
 
 ### Quick Start
@@ -84,47 +49,18 @@ nltk.download('stopwords')
    cd "Sentiment Analysis"
    ```
 
-2. **Launch Jupyter Notebook**:
-   ```bash
-   jupyter notebook amazon-reviews-sentiment-analysis.ipynb
-   ```
-
-3. **Run all cells** or execute step-by-step:
-   - Cells are organized by analysis phase (Steps 1-10)
-   - Each step builds on previous computations
-   - Preprocessed data is cached to `cleaned_documents.csv` for reuse
-
-### Workflow Steps
-
-| Step | Description |
-|------|-------------|
-| 1 | Import libraries and dependencies |
-| 2 | Load and combine training/test datasets |
-| 3 | Apply text normalization (lowercase, stopword removal, stemming) |
-| 4 | Cache cleaned data to CSV |
-| 5 | Remove artifacts (URLs, special characters) |
-| 6 | Verify final cleaned dataset |
-| 7 | Train-test split and vocabulary analysis |
-| 8 | Vectorize text using HashingVectorizer |
-| 9 | Train and evaluate Logistic Regression |
-| 10 | Train and evaluate Linear SVC |
-
 ## Results
 
 ### Model Performance
 
-Both models were evaluated on ~40K test samples with the following results:
+Both models were evaluated on 40K test samples and the results are following:
 
 ```
 Logistic Regression:
   - Accuracy: ~88%
-  - Strong performance across both sentiment classes
-  - Provides probability estimates for decision calibration
 
 Linear SVC:
   - Accuracy: ~88%
-  - Excellent margin-based separation
-  - Fast inference on high-dimensional data
 ```
 
 View exact metrics by executing the evaluation cells in the notebook.
@@ -198,6 +134,8 @@ cleaned_data = pd.read_csv('cleaned_documents.csv')
 
 ### Model Configuration
 
+- You can compare different configuration for both models, but the configurations mentioned below resulted with the least loss and better accuracy.
+
 **Logistic Regression**:
 - Solver: LBFGS (quasi-Newton optimization)
 - C: 5.0 (inverse regularization strength)
@@ -222,6 +160,3 @@ This project uses publicly available data from Kaggle. Follow Kaggle's terms of 
 Created as a comprehensive sentiment analysis pipeline demonstrating end-to-end machine learning workflows for NLP tasks.
 
 ---
-
-**Last Updated**: January 2026  
-**Status**: Complete and production-ready
