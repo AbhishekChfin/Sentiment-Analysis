@@ -89,50 +89,17 @@ View exact metrics by executing the evaluation cells in the notebook.
 - **N-grams**: Unigrams and bigrams capture local word context
 - **Normalization**: L2 norm applied to feature vectors
 
-## Advanced Usage
-
-### Viewing Exact Metrics
-
-Execute this code in a new cell to display model performance:
-
-```python
-print(f"Logistic Regression accuracy: {lr_accuracy:.4f}")
-print(f"Linear SVC accuracy: {svc_accuracy:.4f}")
-print('\nLogistic Regression classification report:\n', lr_report)
-print('\nLinear SVC classification report:\n', svc_report)
-```
-
-### Using Cached Data
-
-Skip preprocessing and start from preprocessed data:
-
-```python
-cleaned_data = pd.read_csv('cleaned_documents.csv')
-# Continue from Step 7 onward
-```
-
 ## Future Improvements
 
 ### Short-Term Enhancements
 - **TF-IDF Weighting**: Replace HashingVectorizer with TfidfVectorizer for improved feature importance
-- **Hyperparameter Tuning**: Use GridSearchCV to optimize model parameters
-- **Class Weight Balancing**: Address potential class imbalance
 
 ### Advanced Approaches
 - **Word Embeddings**: Word2Vec, GloVe, or FastText embeddings
 - **Deep Learning**: LSTM or transformer-based models (BERT, RoBERTa)
-- **Ensemble Methods**: Random Forest, Gradient Boosting
-- **Cross-Validation**: K-fold cross-validation for robust performance estimates
-- **Error Analysis**: Investigate misclassified samples for model insights
 
-## Technical Details
 
-### Environment Specifications
-- Tested on: Python 3.8+ with scikit-learn 0.24+
-- Memory: ~2-4GB RAM recommended for full dataset processing
-- Computation: All models train within minutes on standard hardware
-
-### Model Configuration
+## Model Configuration
 
 - You can compare different configuration for both models, but the configurations mentioned below resulted with the least loss and better accuracy.
 
